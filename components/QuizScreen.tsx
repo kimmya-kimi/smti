@@ -34,14 +34,14 @@ export function QuizScreen({
     <section className="archive-border animate-riseIn rounded-[32px] bg-white/[0.04] p-5 shadow-card backdrop-blur md:p-7">
       <div className="mb-6 flex items-center justify-between gap-3">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-gold sm:text-xs">
             情景题加载中
           </div>
-          <div className="mt-2 text-sm text-white/55">
+          <div className="mt-2 text-[13px] text-white/55 sm:text-sm">
             第 {currentIndex + 1} / {questions.length} 题
           </div>
         </div>
-        <div className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs font-medium text-white/65">
+        <div className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] font-medium text-white/65 sm:text-xs">
           进度 {Math.round(progress)}%
         </div>
       </div>
@@ -49,10 +49,10 @@ export function QuizScreen({
       <ProgressBar value={progress} />
 
       <div className="mt-8 rounded-[28px] border border-white/10 bg-black/20 p-5">
-        <div className="mb-4 text-xs font-medium tracking-[0.18em] text-white/42">
+        <div className="mb-4 text-[11px] font-medium tracking-[0.18em] text-white/42 sm:text-xs">
           已完成 {answeredCount} / {questions.length}
         </div>
-        <h2 className="text-2xl font-black leading-tight text-white md:text-[30px]">
+        <h2 className="text-xl font-black leading-tight text-white sm:text-2xl md:text-[28px]">
           {currentQuestion.title}
         </h2>
 
@@ -77,7 +77,7 @@ export function QuizScreen({
               >
                 {option.key}
               </div>
-              <div className="pt-1 text-base font-medium leading-7 text-white/88">
+              <div className="pt-1 text-[15px] font-medium leading-6 text-white/88 sm:text-base sm:leading-7">
                 {option.text}
               </div>
             </button>
@@ -89,7 +89,7 @@ export function QuizScreen({
             type="button"
             onClick={onPrev}
             disabled={currentIndex === 0}
-            className="rounded-2xl border border-white/12 bg-white/6 px-4 py-4 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-35"
+            className="rounded-2xl border border-white/12 bg-white/6 px-4 py-4 text-[13px] font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-35 sm:text-sm"
           >
             上一题
           </button>
@@ -98,7 +98,7 @@ export function QuizScreen({
               type="button"
               onClick={onNext}
               disabled={!hasCurrentAnswer}
-              className="rounded-2xl border border-gold/35 bg-gold/14 px-4 py-4 text-sm font-semibold text-gold transition disabled:cursor-not-allowed disabled:opacity-35"
+              className="rounded-2xl border border-gold/35 bg-gold/14 px-4 py-4 text-[13px] font-semibold text-gold transition disabled:cursor-not-allowed disabled:opacity-35 sm:text-sm"
             >
               下一题
             </button>
@@ -109,7 +109,7 @@ export function QuizScreen({
             type="button"
             onClick={onViewResult}
             disabled={!isComplete}
-            className="rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-4 text-sm font-semibold text-emerald-200 transition disabled:cursor-not-allowed disabled:opacity-35"
+            className="rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-4 text-[13px] font-semibold text-emerald-200 transition disabled:cursor-not-allowed disabled:opacity-35 sm:text-sm"
           >
             查看结果
           </button>

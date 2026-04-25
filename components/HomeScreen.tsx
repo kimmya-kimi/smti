@@ -44,26 +44,26 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
 
         <div className="mt-8 flex flex-col gap-6">
           <div>
-            <h1 className="text-[40px] font-black leading-tight tracking-tight text-white sm:text-[56px]">
-              测测你是哪种历史狠人格
+            <h1 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl">
+              你是哪个历史狠人
             </h1>
-            <p className="mt-4 text-lg font-medium text-white/78">
+            <p className="mt-3 text-base font-medium text-white/78 sm:text-lg">
               MBTI过时了，来测你的 SMTI
             </p>
           </div>
 
           <div className="rounded-[28px] border border-white/10 bg-black/20 p-5 backdrop-blur">
-            <div className="flex items-end gap-2 text-[42px] font-black leading-none sm:text-[58px]">
+            <div className="flex items-end gap-2 text-[34px] font-black leading-none sm:text-[52px]">
               <span className="text-gold drop-shadow-[0_0_20px_rgba(247,195,95,0.4)]">S</span>
               <span className="text-white/35">/</span>
               <span className="text-ember drop-shadow-[0_0_20px_rgba(255,77,109,0.45)]">M</span>
             </div>
-            <p className="mt-4 text-2xl font-bold leading-tight text-white md:text-[30px]">
+            <p className="mt-3 text-xl font-bold leading-tight text-white sm:text-2xl md:text-[28px]">
               白天在工位唯唯诺诺，
               <br />
               灵魂里却藏着秦始皇的权杖？
             </p>
-            <p className="mt-4 text-xl font-semibold leading-tight text-white/82 md:text-[26px]">
+            <p className="mt-3 text-lg font-semibold leading-tight text-white/82 sm:text-xl md:text-[24px]">
               亦或是外表杀伐果断，
               <br />
               深夜却渴望被命运狠狠按倒？
@@ -71,7 +71,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
           </div>
 
           <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[28px] border border-white/10 bg-black/20 p-5 text-sm leading-7 text-white/78 backdrop-blur md:text-[15px]">
+            <div className="rounded-[28px] border border-white/10 bg-black/20 p-5 text-[13px] leading-6 text-white/78 backdrop-blur sm:text-sm md:text-[15px]">
               20道情景题，测出你的 SMTI 人格代码。
               <br />
               有的人像秦始皇，控场控到文件名都想统一。
@@ -86,7 +86,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
                 {dimensionCards.map((item) => (
                   <details
                     key={item.pair}
-                    className="group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/82"
+                    className="group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-[13px] text-white/82 sm:text-sm"
                   >
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold">
                       <span className="tracking-[0.16em] text-gold">{item.pair}</span>
@@ -106,13 +106,13 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
           <button
             type="button"
             onClick={onStart}
-            className="group relative overflow-hidden rounded-[22px] border border-gold/45 bg-[linear-gradient(90deg,rgba(255,77,109,0.22),rgba(247,195,95,0.22),rgba(84,242,195,0.18))] px-6 py-4 text-base font-bold text-white shadow-neon transition duration-300 hover:scale-[1.01] active:scale-[0.98]"
+            className="group relative overflow-hidden rounded-[22px] border border-gold/45 bg-[linear-gradient(90deg,rgba(255,77,109,0.22),rgba(247,195,95,0.22),rgba(84,242,195,0.18))] px-6 py-3.5 text-sm font-bold text-white shadow-neon transition duration-300 hover:scale-[1.01] active:scale-[0.98] sm:text-base"
           >
             <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.18),transparent)] bg-[length:200%_100%] opacity-0 transition group-hover:animate-shimmer group-hover:opacity-100" />
             <span className="relative">开始测试</span>
           </button>
 
-          <p className="text-center text-xs leading-6 text-white/45">
+          <p className="text-center text-[11px] leading-5 text-white/45 sm:text-xs">
             大约 3 分钟，测完别怪它太准。
           </p>
 

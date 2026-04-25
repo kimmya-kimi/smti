@@ -19,16 +19,16 @@ export function ResultScreen({ result, onEditAnswers, onReset }: ResultScreenPro
   return (
     <section className="space-y-5 md:space-y-6">
       <div className="animate-riseIn">
-        <div className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+        <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-gold sm:text-xs">
           你的 SMTI 档案已生成
         </div>
         <CharacterCard profile={profile} rawScores={result.rawScores} />
         <div className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.04] p-5 shadow-card">
-          <div className="text-3xl font-black tracking-tight text-white">
+          <div className="text-[28px] font-black tracking-tight text-white sm:text-[30px]">
             {profile.code} {profile.character}
           </div>
-          <div className="mt-2 text-base font-semibold text-gold">{profile.label}</div>
-          <div className="mt-3 text-lg text-white/80">{profile.punchline}</div>
+          <div className="mt-2 text-sm font-semibold text-gold sm:text-base">{profile.label}</div>
+          <div className="mt-3 text-base text-white/80 sm:text-lg">{profile.punchline}</div>
         </div>
       </div>
 

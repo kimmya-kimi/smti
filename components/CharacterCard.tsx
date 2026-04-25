@@ -8,9 +8,9 @@ interface CharacterCardProps {
 
 export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
   const stats = [
-    { label: "主导气场", value: Math.max(rawScores.S, rawScores.M) },
-    { label: "情绪锋度", value: Math.max(rawScores.T, rawScores.F) },
-    { label: "行动烈度", value: Math.max(rawScores.A, rawScores.I) },
+    { label: "控场指数", value: Math.max(rawScores.S, rawScores.M) },
+    { label: "上头指数", value: Math.max(rawScores.T, rawScores.F) },
+    { label: "出手指数", value: Math.max(rawScores.A, rawScores.I) },
     { label: "破防指数", value: Math.max(rawScores.C, rawScores.V) },
   ];
   const peak = Math.max(...stats.map((item) => item.value), 1);
@@ -25,13 +25,13 @@ export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
 
       <div className="relative flex items-start justify-between gap-4">
         <div>
-          <div className="inline-flex items-center rounded-full border border-gold/40 bg-black/25 px-3 py-1 text-[10px] font-semibold tracking-[0.28em] text-gold">
+          <div className="inline-flex items-center rounded-full border border-gold/40 bg-black/25 px-3 py-1 text-[9px] font-semibold tracking-[0.28em] text-gold sm:text-[10px]">
             {profile.code}
           </div>
-          <h3 className="mt-4 text-2xl font-black tracking-wide text-white md:text-[32px]">
+          <h3 className="mt-3 text-[30px] font-black tracking-wide text-white sm:text-[34px] md:text-[32px]">
             {profile.character}
           </h3>
-          <p className="mt-2 text-sm font-medium text-white/75">{profile.label}</p>
+          <p className="mt-1.5 text-sm font-medium text-white/75 sm:text-[15px]">{profile.label}</p>
         </div>
         <div className="animate-float">
           <CharacterPortrait profile={profile} size="lg" />
@@ -43,7 +43,7 @@ export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
           <CharacterPortrait profile={profile} size="sm" />
           <div className="min-w-0 flex-1">
             <div className="text-xs uppercase tracking-[0.26em] text-white/45">你的历史原型</div>
-            <p className="mt-2 text-sm leading-6 text-white/82">{profile.visual.visualLine}</p>
+            <p className="mt-2 text-[13px] leading-6 text-white/82 sm:text-sm">{profile.visual.visualLine}</p>
           </div>
         </div>
 
@@ -51,7 +51,7 @@ export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
           {profile.visual.memeTags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-white/82"
+              className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[11px] font-medium text-white/82 sm:text-xs"
             >
               {tag}
             </span>
@@ -61,8 +61,8 @@ export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
 
       <div className="relative mt-5 grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
         <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-          <div className="mb-3 text-xs uppercase tracking-[0.24em] text-white/45">现代反差道具</div>
-          <div className="grid grid-cols-2 gap-2 text-sm text-white/78">
+          <div className="mb-3 text-[11px] uppercase tracking-[0.24em] text-white/45 sm:text-xs">现代反差道具</div>
+          <div className="grid grid-cols-2 gap-2 text-[13px] text-white/78 sm:text-sm">
             {profile.visual.props.map((item) => (
               <div key={item} className="rounded-2xl border border-white/8 bg-white/5 px-3 py-2">
                 {item}
@@ -71,7 +71,7 @@ export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
           </div>
         </div>
         <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
-          <div className="mb-3 text-xs uppercase tracking-[0.24em] text-white/45">人物参数条</div>
+          <div className="mb-3 text-[11px] uppercase tracking-[0.24em] text-white/45 sm:text-xs">人物参数条</div>
           <div className="space-y-3">
             {stats.map((stat) => (
               <div key={stat.label}>

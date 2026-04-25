@@ -15,6 +15,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "金黑",
       bgGradient: "from-[#1e1206] via-[#291407] to-[#050505]",
+      image: "/characters/STAC.png",
       portraitKey: "crown",
       props: ["公司制度汇编", "统一命名", "KPI", "卷轴"],
       memeTags: ["朕说了算", "统一一下", "制度压制情绪"],
@@ -35,6 +36,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "红金",
       bgGradient: "from-[#38120a] via-[#651513] to-[#120507]",
+      image: "/characters/STAV.png",
       portraitKey: "expansion",
       props: ["五年战略", "版图PPT", "咖啡", "扩张箭头"],
       memeTags: ["全都拿下", "再开一城", "朋友圈版图扩张"],
@@ -55,6 +57,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "灰紫",
       bgGradient: "from-[#121118] via-[#25203a] to-[#06060a]",
+      image: "/characters/STIC.png",
       portraitKey: "visor",
       props: ["棋盘", "监控屏", "进度条99%", "暗中观察"],
       memeTags: ["再等等", "他快露馅了", "终局才出手"],
@@ -75,6 +78,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "蓝紫",
       bgGradient: "from-[#0d1025] via-[#1f2757] to-[#09060d]",
+      image: "/characters/STIV.png",
       portraitKey: "fan",
       props: ["羽扇", "项目看板", "方案28版", "救火清单"],
       memeTags: ["算了我来", "救火24小时", "人形充电宝"],
@@ -87,7 +91,7 @@ export const results: ResultMap = {
     label: "尊严破局者",
     punchline: "你拒绝在烂规则里低头。",
     radarComment: "你的主导值、风骨值、进攻值和契约值很强。你不是单纯冲动，你是无法忍受尊严被践踏。",
-    historicalExplanation: "恭喜你！你抽中了 SMTI 里最不适合受委屈的人格。\n\n你不是脾气爆，你只是尊严感比很多人的工资都高。\n你看起来像一言不合就开战，实际上是对羞辱和轻视零容忍。\n别人以为你太刚，其实你只是没法在烂规则里低头演配合。\n\n你的优势是爆发力强、气场足，关键时刻你能靠一口气把场面硬生生顶开。\n你的问题是太容易被冒犯感点燃，很多本来能谈的局，最后都被你开成了决斗模式。\n你最适合的活法不是把自己磨圆，而是去一个尊严不需要打折的地方发光。\n\n一句话总结：\n+你可以输一次，但绝不接受被人看扁着活。",
+    historicalExplanation: "恭喜你！你抽中了 SMTI 里最不适合受委屈的人格。\n\n你不是脾气爆，你只是尊严感比很多人的工资都高。\n你看起来像一言不合就开战，实际上是对羞辱和轻视零容忍。\n别人以为你太刚，其实你只是没法在烂规则里低头演配合。\n\n你的优势是爆发力强、气场足，关键时刻你能靠一口气把场面硬生生顶开。\n你的问题是太容易被冒犯感点燃，很多本来能谈的局，最后都被你开成了决斗模式。\n你最适合的活法不是把自己磨圆，而是去一个尊严不需要打折的地方发光。\n\n一句话总结：\n你可以输一次，但绝不接受被人看扁着活。",
     personality: "你是强烈、直接、有尊严感的人。你做事很有爆发力，适合需要气场、表达和破局的场景。但你也容易因为一口气、一句话、一个眼神，直接和局面硬碰硬。你最需要修炼的是：不是每一次被冒犯，都值得你亲自开战。",
     jobs: ["品牌主理人", "危机公关负责人", "尊严保安队队长"],
     loveProfile: "你在感情里要的是尊重。你可以热烈，也可以付出，但你无法忍受被轻慢。你适合坦诚、坚定、欣赏你的人。你不适合冷暴力、打压式、反复试探你底线的人。你爱一个人时很真，但一旦尊严被踩，你会迅速转身。",
@@ -95,6 +99,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "赤红",
       bgGradient: "from-[#2a0606] via-[#6f0f14] to-[#120305]",
+      image: "/characters/SFAC.png",
       portraitKey: "blade",
       props: ["破规则牌", "辞职信", "长剑", "尊严保安"],
       memeTags: ["老子不干了", "不许羞辱我", "尊严启动"],
@@ -115,6 +120,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "火红",
       bgGradient: "from-[#2c0e08] via-[#8a1111] to-[#140303]",
+      image: "/characters/SFAV.png",
       portraitKey: "banner",
       props: ["工作群99+", "守城旗", "使命清单", "深夜电脑"],
       memeTags: ["再肝一晚", "守住阵地", "使命感过载"],
@@ -135,6 +141,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "冷蓝",
       bgGradient: "from-[#09101a] via-[#16304a] to-[#04070d]",
+      image: "/characters/SFIC.png",
       portraitKey: "wave",
       props: ["离职申请", "emo水", "诗卷", "孤舟"],
       memeTags: ["这个世界太脏了", "我先走了", "精神洁癖"],
@@ -155,6 +162,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "玫紫",
       bgGradient: "from-[#23101d] via-[#5d204e] to-[#10040d]",
+      image: "/characters/SFIV.png",
       portraitKey: "hairpin",
       props: ["备忘录", "小作文", "花窗", "破碎爱心"],
       memeTags: ["又是没人懂的一天", "他刚刚那句话什么意思", "敏感但有才"],
@@ -175,6 +183,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "黑红",
       bgGradient: "from-[#11090c] via-[#441017] to-[#060405]",
+      image: "/characters/MTAC.png",
       portraitKey: "abacus",
       props: ["合同", "计算器", "人性KPI", "商业棋盘"],
       memeTags: ["合同先看", "热情不够结算人生", "人性审计"],
@@ -195,6 +204,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "金绿",
       bgGradient: "from-[#161107] via-[#365720] to-[#050705]",
+      image: "/characters/MTAV.png",
       portraitKey: "network",
       props: ["微信群99+", "通讯录", "酒杯", "关系网"],
       memeTags: ["我不会但我认识会的人", "群主气质", "资源整合"],
@@ -215,6 +225,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "青蓝",
       bgGradient: "from-[#07121a] via-[#14384a] to-[#040709]",
+      image: "/characters/MTIC.png",
       portraitKey: "chess",
       props: ["棋子", "地图暗线", "飞书群", "冷笑"],
       memeTags: ["他们以为我在摸鱼", "我在等风来", "低温谋局"],
@@ -235,6 +246,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "琥珀金",
       bgGradient: "from-[#1c1107] via-[#6d4614] to-[#070403]",
+      image: "/characters/MTIV.png",
       portraitKey: "sail",
       props: ["账本", "小船", "金元宝", "退出路线"],
       memeTags: ["撤", "赚够就走", "不困死在牌桌上"],
@@ -255,6 +267,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "电光蓝",
       bgGradient: "from-[#06111d] via-[#0a4384] to-[#05070a]",
+      image: "/characters/MFAC.png",
       portraitKey: "dagger",
       props: ["升级面板", "委屈回收站", "反杀进度", "破披风"],
       memeTags: ["当前等级Lv1", "反杀进度1%到100%", "别急我在升级"],
@@ -275,6 +288,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "青绿",
       bgGradient: "from-[#08120d] via-[#1c5d47] to-[#030605]",
+      image: "/characters/MFAV.png",
       portraitKey: "brush",
       props: ["朋友圈九宫格", "酒杯", "美食", "毛笔"],
       memeTags: ["生活把我贬了", "但我还能发朋友圈", "崩溃美学"],
@@ -295,6 +309,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "草绿",
       bgGradient: "from-[#091009] via-[#396636] to-[#060706]",
+      image: "/characters/MFIC.png",
       portraitKey: "bamboo",
       props: ["猫", "菊花", "公园", "灵魂下线牌"],
       memeTags: ["不想上班", "只想捡屎种花", "拒绝给荒谬供电"],
@@ -315,6 +330,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "紫黑",
       bgGradient: "from-[#110814] via-[#3d1b52] to-[#060408]",
+      image: "/characters/MFIV.png",
       portraitKey: "moon",
       props: ["Excel", "小作文", "月光", "破碎爱心"],
       memeTags: ["亡国小作文", "老板KPI压不完", "不想被使用"],

@@ -17,7 +17,7 @@ export interface Question {
 export interface ResultVisual {
   themeColor: string;
   bgGradient: string;
-  imagePath?: string;
+  image: string;
   portraitKey:
     | "crown"
     | "expansion"

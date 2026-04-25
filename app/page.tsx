@@ -121,9 +121,9 @@ export default function Page() {
         <header className="mb-4 flex items-center justify-between gap-3 rounded-full border border-white/10 bg-black/20 px-4 py-3 backdrop-blur">
           <div>
             <div className="text-xs uppercase tracking-[0.28em] text-gold">SMTI</div>
-            <div className="mt-1 text-sm font-medium text-white/70">历史原型测试</div>
+            <div className="mt-1 text-[13px] font-medium text-white/70 sm:text-sm">历史原型测试</div>
           </div>
-          <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/55">
+          <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-medium text-white/55 sm:text-[11px]">
             人格代码生成中
           </div>
         </header>

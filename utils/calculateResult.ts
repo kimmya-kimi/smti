@@ -3,17 +3,6 @@ import { AnswerRecord, CalculatedResult, DimensionKey } from "@/types/smti";
 
 const dimensionOrder: DimensionKey[] = ["S", "M", "T", "F", "A", "I", "C", "V"];
 
-const dimensionLabelMap: Record<DimensionKey, string> = {
-  S: "S 主导值",
-  M: "M 承压值",
-  T: "T 铁律值",
-  F: "F 风骨值",
-  A: "A 进攻值",
-  I: "I 隐匿值",
-  C: "C 原则值",
-  V: "破防指数",
-};
-
 export function calculateResult(answerRecords: AnswerRecord[]): CalculatedResult {
   const rawScores: Record<DimensionKey, number> = {
     S: 0,
@@ -47,10 +36,15 @@ export function calculateResult(answerRecords: AnswerRecord[]): CalculatedResult
 
   const highestScore = Math.max(...Object.values(rawScores), 1);
 
-  const radarData = dimensionOrder.map((key) => {
-    const normalized = Math.round((rawScores[key] / highestScore) * 100);
+  const radarData = [
+    { dimension: "控场指数", score: Math.max(rawScores.S, rawScores.M) },
+    { dimension: "上头指数", score: Math.max(rawScores.T, rawScores.F) },
+    { dimension: "出手指数", score: Math.max(rawScores.A, rawScores.I) },
+    { dimension: "破防指数", score: Math.max(rawScores.C, rawScores.V) },
+  ].map((item) => {
+    const normalized = Math.round((item.score / highestScore) * 100);
     return {
-      dimension: dimensionLabelMap[key],
+      dimension: item.dimension,
       value: Math.max(normalized, 10),
       fullMark: 100,
     };

@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { characterImages } from "@/data/characterImages";
+import { useEffect, useMemo, useState } from "react";
 import { ResultProfile } from "@/types/smti";
 
 interface CharacterPortraitProps {
@@ -11,14 +10,12 @@ interface CharacterPortraitProps {
 
 const sizeMap = {
   sm: {
-    shell: "h-16 w-16 rounded-2xl",
-    inner: "inset-2 rounded-[18px]",
-    label: "text-lg",
+    shell: "h-14 w-14 rounded-2xl sm:h-16 sm:w-16",
+    label: "text-base",
   },
   lg: {
-    shell: "h-24 w-24 rounded-[28px] md:h-28 md:w-28",
-    inner: "inset-3 rounded-[24px]",
-    label: "text-2xl",
+    shell: "h-24 w-24 rounded-[24px] md:h-28 md:w-28",
+    label: "text-xl",
   },
 };
 
@@ -26,7 +23,16 @@ export function CharacterPortrait({ profile, size = "lg" }: CharacterPortraitPro
   const [imageFailed, setImageFailed] = useState(false);
   const { shell, label } = sizeMap[size];
   const fallbackGlyph = useMemo(() => profile.character.replace("型", "").slice(0, 1), [profile.character]);
-  const imagePath = characterImages[profile.code as keyof typeof characterImages];
+  const imagePath = profile.visual.image;
+
+  useEffect(() => {
+    setImageFailed(false);
+  }, [imagePath]);
+
+  const handleError = () => {
+    console.warn(`Character image not found for type: ${profile.code}, path: ${imagePath}`);
+    setImageFailed(true);
+  };
 
   return (
     <div
@@ -40,7 +46,7 @@ export function CharacterPortrait({ profile, size = "lg" }: CharacterPortraitPro
           src={imagePath}
           alt={profile.character}
           className="absolute inset-x-[8%] bottom-[8%] top-[8%] h-[84%] w-[84%] object-contain drop-shadow-[0_0_28px_rgba(84,242,195,0.22)]"
-          onError={() => setImageFailed(true)}
+          onError={handleError}
         />
       ) : null}
 
