@@ -24,9 +24,9 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
     },
     {
       pair: "C / V",
-      left: "C：边界",
-      right: "V：共生",
-      description: "你面对关系时，是重视边界，还是容易共情绑定。",
+      left: "C：原则型",
+      right: "V：破防型",
+      description: "关系里，你是原则写了三页，还是别人一句话就让你破防。",
     },
   ];
 
@@ -44,9 +44,11 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
 
         <div className="mt-8 flex flex-col gap-6">
           <div>
-            <h1 className="text-[40px] font-black leading-none tracking-tight text-white sm:text-[56px]">SMTI</h1>
+            <h1 className="text-[40px] font-black leading-tight tracking-tight text-white sm:text-[56px]">
+              测测你是哪种历史狠人格
+            </h1>
             <p className="mt-4 text-lg font-medium text-white/78">
-              MBTI过时了，来测你的历史原型。
+              MBTI过时了，来测你的 SMTI
             </p>
           </div>
 
@@ -57,9 +59,9 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
               <span className="text-ember drop-shadow-[0_0_20px_rgba(255,77,109,0.45)]">M</span>
             </div>
             <p className="mt-4 text-2xl font-bold leading-tight text-white md:text-[30px]">
-              我是天生上位的 S，
+              你是天生上位的 S，
               <br />
-              还是被生活反复暴打的 M？
+              还是被生活暴打的 M？
             </p>
           </div>
 

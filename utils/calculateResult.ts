@@ -10,8 +10,8 @@ const dimensionLabelMap: Record<DimensionKey, string> = {
   F: "F 风骨值",
   A: "A 进攻值",
   I: "I 隐匿值",
-  C: "C 契约值",
-  V: "V 共生值",
+  C: "C 原则值",
+  V: "破防指数",
 };
 
 export function calculateResult(answerRecords: AnswerRecord[]): CalculatedResult {

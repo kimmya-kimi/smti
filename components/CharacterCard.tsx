@@ -11,7 +11,7 @@ export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
     { label: "主导气场", value: Math.max(rawScores.S, rawScores.M) },
     { label: "情绪锋度", value: Math.max(rawScores.T, rawScores.F) },
     { label: "行动烈度", value: Math.max(rawScores.A, rawScores.I) },
-    { label: "关系密度", value: Math.max(rawScores.C, rawScores.V) },
+    { label: "破防指数", value: Math.max(rawScores.C, rawScores.V) },
   ];
   const peak = Math.max(...stats.map((item) => item.value), 1);
 

@@ -16,7 +16,7 @@ export function ShareCaptureCard({ profile, result }: ShareCaptureCardProps) {
     { label: "S / M", left: "控场", right: "抗压", value: result.rawScores.S, altValue: result.rawScores.M },
     { label: "T / F", left: "铁律", right: "风骨", value: result.rawScores.T, altValue: result.rawScores.F },
     { label: "A / I", left: "出手", right: "潜伏", value: result.rawScores.A, altValue: result.rawScores.I },
-    { label: "C / V", left: "边界", right: "共生", value: result.rawScores.C, altValue: result.rawScores.V },
+    { label: "C / V", left: "原则", right: "破防", value: result.rawScores.C, altValue: result.rawScores.V },
   ].map((item) => {
     const total = item.value + item.altValue || 1;
     return {
