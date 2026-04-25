@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { HomeScreen } from "@/components/HomeScreen";
 import { QuizScreen } from "@/components/QuizScreen";
 import { ResultScreen } from "@/components/ResultScreen";
@@ -14,6 +14,15 @@ export default function Page() {
   const [stage, setStage] = useState<Stage>("home");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
+  const [pendingOptionKey, setPendingOptionKey] = useState<QuestionOption["key"] | null>(null);
+  const autoAdvanceRef = useRef<number | null>(null);
+
+  const clearAutoAdvance = () => {
+    if (autoAdvanceRef.current) {
+      window.clearTimeout(autoAdvanceRef.current);
+      autoAdvanceRef.current = null;
+    }
+  };
 
   const result = useMemo(() => {
     if (answers.length !== questions.length) {
@@ -22,32 +31,88 @@ export default function Page() {
     return calculateResult(answers);
   }, [answers]);
 
+  const currentQuestionId = questions[currentIndex].id;
+  const selectedOptionKey = answers.find((item) => item.questionId === currentQuestionId)?.optionKey;
+
+  useEffect(() => () => clearAutoAdvance(), []);
+
   const handleStart = () => {
+    clearAutoAdvance();
     setStage("quiz");
     setCurrentIndex(0);
     setAnswers([]);
+    setPendingOptionKey(null);
   };
 
-  const handleSelect = (option: QuestionOption) => {
-    const nextAnswers = [
-      ...answers,
-      { questionId: questions[currentIndex].id, optionKey: option.key },
-    ];
+  const upsertAnswer = (questionId: number, optionKey: QuestionOption["key"]) => {
+    setAnswers((prev) => {
+      const existingIndex = prev.findIndex((item) => item.questionId === questionId);
+      if (existingIndex === -1) {
+        return [...prev, { questionId, optionKey }];
+      }
 
-    setAnswers(nextAnswers);
+      const next = [...prev];
+      next[existingIndex] = { questionId, optionKey };
+      return next;
+    });
+  };
 
-    if (currentIndex === questions.length - 1) {
-      setStage("result");
+  const handlePrev = () => {
+    clearAutoAdvance();
+    setPendingOptionKey(null);
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    if (!selectedOptionKey) {
       return;
     }
 
-    setCurrentIndex((prev) => prev + 1);
+    clearAutoAdvance();
+    setPendingOptionKey(null);
+    setCurrentIndex((prev) => Math.min(prev + 1, questions.length - 1));
+  };
+
+  const handleViewResult = () => {
+    if (answers.length !== questions.length) {
+      return;
+    }
+
+    clearAutoAdvance();
+    setPendingOptionKey(null);
+    setStage("result");
+  };
+
+  const handleSelect = (option: QuestionOption) => {
+    clearAutoAdvance();
+    upsertAnswer(currentQuestionId, option.key);
+    setPendingOptionKey(option.key);
+
+    autoAdvanceRef.current = window.setTimeout(() => {
+      setPendingOptionKey(null);
+
+      if (currentIndex === questions.length - 1) {
+        setStage("result");
+        return;
+      }
+
+      setCurrentIndex((prev) => Math.min(prev + 1, questions.length - 1));
+    }, 300);
   };
 
   const handleReset = () => {
+    clearAutoAdvance();
     setStage("home");
     setCurrentIndex(0);
     setAnswers([]);
+    setPendingOptionKey(null);
+  };
+
+  const handleEditAnswers = () => {
+    clearAutoAdvance();
+    setPendingOptionKey(null);
+    setStage("quiz");
+    setCurrentIndex(questions.length - 1);
   };
 
   return (
@@ -66,9 +131,24 @@ export default function Page() {
         <div className="flex-1">
           {stage === "home" && <HomeScreen onStart={handleStart} />}
           {stage === "quiz" && (
-            <QuizScreen currentIndex={currentIndex} answers={answers} onSelect={handleSelect} />
+            <QuizScreen
+              currentIndex={currentIndex}
+              answers={answers}
+              selectedOptionKey={selectedOptionKey}
+              pendingOptionKey={pendingOptionKey}
+              onSelect={handleSelect}
+              onPrev={handlePrev}
+              onNext={handleNext}
+              onViewResult={handleViewResult}
+            />
           )}
-          {stage === "result" && result && <ResultScreen result={result} onReset={handleReset} />}
+          {stage === "result" && result && (
+            <ResultScreen
+              result={result}
+              onEditAnswers={handleEditAnswers}
+              onReset={handleReset}
+            />
+          )}
         </div>
 
         <footer className="pb-2 pt-6 text-center text-[11px] tracking-[0.18em] text-white/28">

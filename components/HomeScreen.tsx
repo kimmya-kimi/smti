@@ -3,6 +3,33 @@ interface HomeScreenProps {
 }
 
 export function HomeScreen({ onStart }: HomeScreenProps) {
+  const dimensionCards = [
+    {
+      pair: "S / M",
+      left: "S：控场",
+      right: "M：抗压",
+      description: "你面对压迫时，是掌控局面，还是先扛住再说。",
+    },
+    {
+      pair: "T / F",
+      left: "T：铁律",
+      right: "F：风骨",
+      description: "你处理问题时，是先算账，还是先看人心。",
+    },
+    {
+      pair: "A / I",
+      left: "A：出手",
+      right: "I：潜伏",
+      description: "你遇到机会时，是立刻出手，还是暗中观察。",
+    },
+    {
+      pair: "C / V",
+      left: "C：边界",
+      right: "V：共生",
+      description: "你面对关系时，是重视边界，还是容易共情绑定。",
+    },
+  ];
+
   return (
     <section className="relative overflow-hidden rounded-[32px] bg-mesh px-5 py-7 shadow-card md:px-8 md:py-9">
       <div className="archive-border absolute inset-0 rounded-[32px]" />
@@ -38,31 +65,32 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
 
           <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-[28px] border border-white/10 bg-black/20 p-5 text-sm leading-7 text-white/78 backdrop-blur md:text-[15px]">
-              20道疯癫情景题，
+              20道情景题，测出你的 SMTI 人格代码。
               <br />
-              测出你的乱世人格代码。
+              有的人像秦始皇，控场控到文件名都想统一。
               <br />
+              有的人像司马懿，表面不说，心里已经下到终局。
               <br />
-              你身体里可能住着一个秦始皇、刘邦、项羽、司马懿、苏轼、李清照、韩信或陶渊明。
-              这不是测你有多正常，而是测你在乱世剧本里，到底会站到台前改规则，还是被命运暴打后偷偷翻盘。
+              也有人像苏轼，人生再离谱，也能顺手写成一条值得转发的状态。
             </div>
 
             <div className="rounded-[28px] border border-white/10 bg-black/20 p-5 backdrop-blur">
-              <div className="grid grid-cols-2 gap-3 text-center text-sm font-semibold text-white/85">
-                {[
-                  ["S", "主导型"],
-                  ["M", "承压型"],
-                  ["T", "铁律型"],
-                  ["F", "风骨型"],
-                  ["A", "进攻型"],
-                  ["I", "隐匿型"],
-                  ["C", "契约型"],
-                  ["V", "共生型"],
-                ].map(([letter, label]) => (
-                  <div key={letter} className="rounded-2xl border border-white/10 bg-white/5 px-3 py-4">
-                    <div className="text-xl font-black text-gold">{letter}</div>
-                    <div className="mt-1 text-xs tracking-wide text-white/65">{label}</div>
-                  </div>
+              <div className="grid gap-3">
+                {dimensionCards.map((item) => (
+                  <details
+                    key={item.pair}
+                    className="group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/82"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 font-semibold">
+                      <span className="tracking-[0.16em] text-gold">{item.pair}</span>
+                      <span className="text-white/88">
+                        {item.left}
+                        <span className="mx-2 text-white/28">/</span>
+                        {item.right}
+                      </span>
+                    </summary>
+                    <p className="mt-3 text-xs leading-6 text-white/60">{item.description}</p>
+                  </details>
                 ))}
               </div>
             </div>
@@ -78,9 +106,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
           </button>
 
           <p className="text-center text-xs leading-6 text-white/45">
-            娱乐测试，请勿当成人生判决书。
-            <br />
-            真正的命运，还是得自己改。
+            大约 3 分钟，测完别怪它太准。
           </p>
 
           <div className="mx-auto max-w-md rounded-[22px] border border-white/8 bg-black/15 px-4 py-4 text-center backdrop-blur">
@@ -88,7 +114,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
               由小天鹅制作
             </div>
             <p className="mt-2 text-xs leading-6 text-white/48">
-              一个热衷观察人类命运剧本的乱世人格研究员
+              一个热衷观察人类命运剧本的历史原型研究员
             </p>
           </div>
         </div>

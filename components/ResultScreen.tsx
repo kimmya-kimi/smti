@@ -4,14 +4,16 @@ import { CharacterCard } from "@/components/CharacterCard";
 import { JobList } from "@/components/JobList";
 import { RadarPanel } from "@/components/RadarPanel";
 import { ResultSection } from "@/components/ResultSection";
+import { ShareCaptureCard } from "@/components/ShareCaptureCard";
 import { ShareBox } from "@/components/ShareBox";
 
 interface ResultScreenProps {
   result: CalculatedResult;
+  onEditAnswers: () => void;
   onReset: () => void;
 }
 
-export function ResultScreen({ result, onReset }: ResultScreenProps) {
+export function ResultScreen({ result, onEditAnswers, onReset }: ResultScreenProps) {
   const profile = results[result.code];
 
   return (
@@ -35,6 +37,10 @@ export function ResultScreen({ result, onReset }: ResultScreenProps) {
         <p className="mt-4">{profile.radarComment}</p>
       </ResultSection>
 
+      <ResultSection title="分享我的 SMTI">
+        <ShareCaptureCard profile={profile} result={result} />
+      </ResultSection>
+
       <ResultSection title={`为什么你是${profile.character}？`}>
         <p>{profile.historicalExplanation}</p>
       </ResultSection>
@@ -51,8 +57,8 @@ export function ResultScreen({ result, onReset }: ResultScreenProps) {
         <p>{profile.loveProfile}</p>
       </ResultSection>
 
-      <ResultSection title="分享我的 SMTI">
-        <ShareBox shareText={profile.shareText} onReset={onReset} />
+      <ResultSection title="把结果发给会破防的人">
+        <ShareBox shareText={profile.shareText} onEditAnswers={onEditAnswers} onReset={onReset} />
       </ResultSection>
 
       <section className="archive-border animate-riseIn rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.03))] p-5 shadow-card backdrop-blur md:p-6">
@@ -98,7 +104,7 @@ export function ResultScreen({ result, onReset }: ResultScreenProps) {
               你又会怎样保住自己？
             </p>
             <p>
-              愿你看完这份乱世人格档案之后，
+              愿你看完这份 SMTI 档案之后，
               <br />
               不是被命运定义，
               <br />

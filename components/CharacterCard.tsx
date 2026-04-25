@@ -1,3 +1,4 @@
+import { CharacterPortrait } from "@/components/CharacterPortrait";
 import { ResultProfile } from "@/types/smti";
 
 interface CharacterCardProps {
@@ -32,19 +33,16 @@ export function CharacterCard({ profile, rawScores }: CharacterCardProps) {
           </h3>
           <p className="mt-2 text-sm font-medium text-white/75">{profile.label}</p>
         </div>
-        <div className="relative flex h-20 w-20 items-center justify-center rounded-[26px] border border-white/15 bg-black/25 text-4xl shadow-neon backdrop-blur animate-float">
-          <span>{profile.visual.emoji}</span>
-          <span className="absolute inset-2 rounded-[20px] border border-white/10" />
+        <div className="animate-float">
+          <CharacterPortrait profile={profile} size="lg" />
         </div>
       </div>
 
       <div className="relative mt-5 rounded-[26px] border border-white/10 bg-black/25 p-4 backdrop-blur">
         <div className="flex items-center gap-3">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-3xl">
-            {profile.visual.emoji}
-          </div>
+          <CharacterPortrait profile={profile} size="sm" />
           <div className="min-w-0 flex-1">
-            <div className="text-xs uppercase tracking-[0.26em] text-white/45">乱世人物肖像</div>
+            <div className="text-xs uppercase tracking-[0.26em] text-white/45">你的历史原型</div>
             <p className="mt-2 text-sm leading-6 text-white/82">{profile.visual.visualLine}</p>
           </div>
         </div>

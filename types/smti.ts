@@ -17,7 +17,24 @@ export interface Question {
 export interface ResultVisual {
   themeColor: string;
   bgGradient: string;
-  emoji: string;
+  imagePath?: string;
+  portraitKey:
+    | "crown"
+    | "expansion"
+    | "visor"
+    | "fan"
+    | "blade"
+    | "banner"
+    | "wave"
+    | "hairpin"
+    | "abacus"
+    | "network"
+    | "chess"
+    | "sail"
+    | "dagger"
+    | "brush"
+    | "bamboo"
+    | "moon";
   props: string[];
   memeTags: string[];
   visualLine: string;

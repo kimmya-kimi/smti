@@ -15,7 +15,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "金黑",
       bgGradient: "from-[#1e1206] via-[#291407] to-[#050505]",
-      emoji: "👑",
+      portraitKey: "crown",
       props: ["公司制度汇编", "统一命名", "KPI", "卷轴"],
       memeTags: ["朕说了算", "统一一下", "制度压制情绪"],
       visualLine: "手握制度汇编，眼神像刚发现有人把文件命名成“最终版2”。",
@@ -35,7 +35,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "红金",
       bgGradient: "from-[#38120a] via-[#651513] to-[#120507]",
-      emoji: "🔥",
+      portraitKey: "expansion",
       props: ["五年战略", "版图PPT", "咖啡", "扩张箭头"],
       memeTags: ["全都拿下", "再开一城", "朋友圈版图扩张"],
       visualLine: "一手拿咖啡，一手画战略版图，像准备把人生做成上市公司。",
@@ -55,9 +55,9 @@ export const results: ResultMap = {
     visual: {
       themeColor: "灰紫",
       bgGradient: "from-[#121118] via-[#25203a] to-[#06060a]",
-      emoji: "🕶️",
+      portraitKey: "visor",
       props: ["棋盘", "监控屏", "进度条99%", "暗中观察"],
-      memeTags: ["再等等", "他快露馅了", "反杀加载中"],
+      memeTags: ["再等等", "他快露馅了", "终局才出手"],
       visualLine: "表面沉默，背后进度条已经加载到99%。",
     },
   },
@@ -75,7 +75,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "蓝紫",
       bgGradient: "from-[#0d1025] via-[#1f2757] to-[#09060d]",
-      emoji: "🪭",
+      portraitKey: "fan",
       props: ["羽扇", "项目看板", "方案28版", "救火清单"],
       memeTags: ["算了我来", "救火24小时", "人形充电宝"],
       visualLine: "嘴上说最后一次，手上已经打开了第28版方案。",
@@ -95,7 +95,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "赤红",
       bgGradient: "from-[#2a0606] via-[#6f0f14] to-[#120305]",
-      emoji: "⚔️",
+      portraitKey: "blade",
       props: ["破规则牌", "辞职信", "长剑", "尊严保安"],
       memeTags: ["老子不干了", "不许羞辱我", "尊严启动"],
       visualLine: "一边破防一边开战，主打一个尊严比工资更贵。",
@@ -115,7 +115,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "火红",
       bgGradient: "from-[#2c0e08] via-[#8a1111] to-[#140303]",
-      emoji: "🏹",
+      portraitKey: "banner",
       props: ["工作群99+", "守城旗", "使命清单", "深夜电脑"],
       memeTags: ["再肝一晚", "守住阵地", "使命感过载"],
       visualLine: "凌晨两点还在回消息，像整个团队今晚亡不亡全看他。",
@@ -135,7 +135,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "冷蓝",
       bgGradient: "from-[#09101a] via-[#16304a] to-[#04070d]",
-      emoji: "🌊",
+      portraitKey: "wave",
       props: ["离职申请", "emo水", "诗卷", "孤舟"],
       memeTags: ["这个世界太脏了", "我先走了", "精神洁癖"],
       visualLine: "别人只是想下班，他已经在精神上流放三千里。",
@@ -155,7 +155,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "玫紫",
       bgGradient: "from-[#23101d] via-[#5d204e] to-[#10040d]",
-      emoji: "🌙",
+      portraitKey: "hairpin",
       props: ["备忘录", "小作文", "花窗", "破碎爱心"],
       memeTags: ["又是没人懂的一天", "他刚刚那句话什么意思", "敏感但有才"],
       visualLine: "一句“哦”能分析出七层含义，备忘录里全是人类情绪标本。",
@@ -175,7 +175,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "黑红",
       bgGradient: "from-[#11090c] via-[#441017] to-[#060405]",
-      emoji: "🧮",
+      portraitKey: "abacus",
       props: ["合同", "计算器", "人性KPI", "商业棋盘"],
       memeTags: ["合同先看", "热情不够结算人生", "人性审计"],
       visualLine: "你谈理想，他已经打开计算器算沉没成本。",
@@ -195,7 +195,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "金绿",
       bgGradient: "from-[#161107] via-[#365720] to-[#050705]",
-      emoji: "🍻",
+      portraitKey: "network",
       props: ["微信群99+", "通讯录", "酒杯", "关系网"],
       memeTags: ["我不会但我认识会的人", "群主气质", "资源整合"],
       visualLine: "技能点可能没点满，但通讯录像一张隐藏地图。",
@@ -215,7 +215,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "青蓝",
       bgGradient: "from-[#07121a] via-[#14384a] to-[#040709]",
-      emoji: "♟️",
+      portraitKey: "chess",
       props: ["棋子", "地图暗线", "飞书群", "冷笑"],
       memeTags: ["他们以为我在摸鱼", "我在等风来", "低温谋局"],
       visualLine: "别人以为他在沉默，其实他已经把局拆到第五层。",
@@ -235,7 +235,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "琥珀金",
       bgGradient: "from-[#1c1107] via-[#6d4614] to-[#070403]",
-      emoji: "⛵",
+      portraitKey: "sail",
       props: ["账本", "小船", "金元宝", "退出路线"],
       memeTags: ["撤", "赚够就走", "不困死在牌桌上"],
       visualLine: "别人还在上桌，他已经优雅地规划撤退路线。",
@@ -255,7 +255,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "电光蓝",
       bgGradient: "from-[#06111d] via-[#0a4384] to-[#05070a]",
-      emoji: "🗡️",
+      portraitKey: "dagger",
       props: ["升级面板", "委屈回收站", "反杀进度", "破披风"],
       memeTags: ["当前等级Lv1", "反杀进度1%到100%", "别急我在升级"],
       visualLine: "被低估时不说话，只是默默把版本号升到别人看不懂。",
@@ -275,7 +275,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "青绿",
       bgGradient: "from-[#08120d] via-[#1c5d47] to-[#030605]",
-      emoji: "🍷",
+      portraitKey: "brush",
       props: ["朋友圈九宫格", "酒杯", "美食", "毛笔"],
       memeTags: ["生活把我贬了", "但我还能发朋友圈", "崩溃美学"],
       visualLine: "人生越离谱，他越能把它写成一条有赞的朋友圈。",
@@ -295,7 +295,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "草绿",
       bgGradient: "from-[#091009] via-[#396636] to-[#060706]",
-      emoji: "🐈",
+      portraitKey: "bamboo",
       props: ["猫", "菊花", "公园", "灵魂下线牌"],
       memeTags: ["不想上班", "只想捡屎种花", "拒绝给荒谬供电"],
       visualLine: "不是摆烂，是灵魂电量只剩3%，正在退出高压系统。",
@@ -315,7 +315,7 @@ export const results: ResultMap = {
     visual: {
       themeColor: "紫黑",
       bgGradient: "from-[#110814] via-[#3d1b52] to-[#060408]",
-      emoji: "💔",
+      portraitKey: "moon",
       props: ["Excel", "小作文", "月光", "破碎爱心"],
       memeTags: ["亡国小作文", "老板KPI压不完", "不想被使用"],
       visualLine: "人还在上班，灵魂已经坐在月光下写亡国感言。",
