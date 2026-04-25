@@ -12,17 +12,12 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
 
       <div className="relative">
         <div className="inline-flex items-center rounded-full border border-gold/35 bg-black/25 px-3 py-1.5 text-[11px] font-semibold tracking-[0.28em] text-gold">
-          命运档案生成器
+          历史原型测试
         </div>
 
         <div className="mt-8 flex flex-col gap-6">
           <div>
-            <h1 className="text-[40px] font-black leading-none tracking-tight text-white sm:text-[56px]">
-              SMTI
-              <span className="ml-2 text-stroke bg-gradient-to-r from-gold via-white to-ember bg-clip-text text-transparent">
-                乱世人格测试
-              </span>
-            </h1>
+            <h1 className="text-[40px] font-black leading-none tracking-tight text-white sm:text-[56px]">SMTI</h1>
             <p className="mt-4 text-lg font-medium text-white/78">
               MBTI过时了，来测你的历史原型。
             </p>
@@ -79,7 +74,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
             className="group relative overflow-hidden rounded-[22px] border border-gold/45 bg-[linear-gradient(90deg,rgba(255,77,109,0.22),rgba(247,195,95,0.22),rgba(84,242,195,0.18))] px-6 py-4 text-base font-bold text-white shadow-neon transition duration-300 hover:scale-[1.01] active:scale-[0.98]"
           >
             <span className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.18),transparent)] bg-[length:200%_100%] opacity-0 transition group-hover:animate-shimmer group-hover:opacity-100" />
-            <span className="relative">开始受测</span>
+            <span className="relative">开始测试</span>
           </button>
 
           <p className="text-center text-xs leading-6 text-white/45">

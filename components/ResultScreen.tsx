@@ -18,7 +18,7 @@ export function ResultScreen({ result, onReset }: ResultScreenProps) {
     <section className="space-y-5 md:space-y-6">
       <div className="animate-riseIn">
         <div className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-gold">
-          SMTI人格档案已生成
+          你的 SMTI 档案已生成
         </div>
         <CharacterCard profile={profile} rawScores={result.rawScores} />
         <div className="mt-5 rounded-[28px] border border-white/10 bg-white/[0.04] p-5 shadow-card">
@@ -30,7 +30,7 @@ export function ResultScreen({ result, onReset }: ResultScreenProps) {
         </div>
       </div>
 
-      <ResultSection title="你的乱世生存参数">
+      <ResultSection title="你的生存参数">
         <RadarPanel data={result.radarData} />
         <p className="mt-4">{profile.radarComment}</p>
       </ResultSection>
@@ -51,7 +51,7 @@ export function ResultScreen({ result, onReset }: ResultScreenProps) {
         <p>{profile.loveProfile}</p>
       </ResultSection>
 
-      <ResultSection title="把这份乱世档案发出去">
+      <ResultSection title="分享我的 SMTI">
         <ShareBox shareText={profile.shareText} onReset={onReset} />
       </ResultSection>
 

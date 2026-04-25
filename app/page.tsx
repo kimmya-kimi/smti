@@ -56,10 +56,10 @@ export default function Page() {
         <header className="mb-4 flex items-center justify-between gap-3 rounded-full border border-white/10 bg-black/20 px-4 py-3 backdrop-blur">
           <div>
             <div className="text-xs uppercase tracking-[0.28em] text-gold">SMTI</div>
-            <div className="mt-1 text-sm font-medium text-white/70">乱世人格测试</div>
+            <div className="mt-1 text-sm font-medium text-white/70">历史原型测试</div>
           </div>
           <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-white/55">
-            历史原型档案生成中
+            人格代码生成中
           </div>
         </header>
 
@@ -72,7 +72,7 @@ export default function Page() {
         </div>
 
         <footer className="pb-2 pt-6 text-center text-[11px] tracking-[0.18em] text-white/28">
-          © 2026 小天鹅 · SMTI乱世人格测试
+          © 2026 小天鹅 · SMTI
         </footer>
       </div>
     </main>
