@@ -6,26 +6,26 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
   const dimensionCards = [
     {
       pair: "S / M",
-      left: "S：控场",
-      right: "M：抗压",
-      description: "你面对压迫时，是掌控局面，还是先扛住再说。",
+      left: "控场型",
+      right: "抗压型",
+      description: "遇到烂事时，你是接管局面，还是先扛住再反击。",
     },
     {
       pair: "T / F",
-      left: "T：铁律",
-      right: "F：风骨",
-      description: "你处理问题时，是先算账，还是先看人心。",
+      left: "算账型",
+      right: "上头型",
+      description: "做决定时，你是先看利弊，还是先看情绪和信念。",
     },
     {
       pair: "A / I",
-      left: "A：出手",
-      right: "I：潜伏",
-      description: "你遇到机会时，是立刻出手，还是暗中观察。",
+      left: "冲锋型",
+      right: "潜伏型",
+      description: "机会来了，你是马上出手，还是暗中观察。",
     },
     {
       pair: "C / V",
-      left: "C：原则型",
-      right: "V：破防型",
+      left: "原则型",
+      right: "破防型",
       description: "关系里，你是原则写了三页，还是别人一句话就让你破防。",
     },
   ];
@@ -59,9 +59,14 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
               <span className="text-ember drop-shadow-[0_0_20px_rgba(255,77,109,0.45)]">M</span>
             </div>
             <p className="mt-4 text-2xl font-bold leading-tight text-white md:text-[30px]">
-              你是天生上位的 S，
+              白天在工位唯唯诺诺，
               <br />
-              还是被生活暴打的 M？
+              灵魂里却藏着秦始皇的权杖？
+            </p>
+            <p className="mt-4 text-xl font-semibold leading-tight text-white/82 md:text-[26px]">
+              亦或是外表杀伐果断，
+              <br />
+              深夜却渴望被命运狠狠按倒？
             </p>
           </div>
 
