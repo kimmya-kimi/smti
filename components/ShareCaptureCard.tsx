@@ -13,10 +13,10 @@ export function ShareCaptureCard({ profile, result }: ShareCaptureCardProps) {
   const [hintVisible, setHintVisible] = useState(false);
 
   const bars = [
-    { label: "S / M", left: "控场", right: "抗压", value: result.rawScores.S, altValue: result.rawScores.M },
-    { label: "T / F", left: "铁律", right: "风骨", value: result.rawScores.T, altValue: result.rawScores.F },
-    { label: "A / I", left: "出手", right: "潜伏", value: result.rawScores.A, altValue: result.rawScores.I },
-    { label: "C / V", left: "原则", right: "破防", value: result.rawScores.C, altValue: result.rawScores.V },
+    { label: "控场指数", left: "控场", right: "抗压", value: result.rawScores.S, altValue: result.rawScores.M },
+    { label: "上头指数", left: "算账", right: "上头", value: result.rawScores.T, altValue: result.rawScores.F },
+    { label: "出手指数", left: "冲锋", right: "潜伏", value: result.rawScores.A, altValue: result.rawScores.I },
+    { label: "破防指数", left: "原则", right: "破防", value: result.rawScores.C, altValue: result.rawScores.V },
   ].map((item) => {
     const total = item.value + item.altValue || 1;
     return {

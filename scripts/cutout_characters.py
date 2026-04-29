@@ -61,7 +61,9 @@ def preprocess(image: Image.Image) -> Image.Image:
 def cutout(path: Path) -> Image.Image:
     original = Image.open(path).convert("RGBA")
     cropped = preprocess(original)
-    fg_bytes = remove(cropped.tobytes(), size=cropped.size)
+    cropped_bytes = BytesIO()
+    cropped.save(cropped_bytes, format="PNG")
+    fg_bytes = remove(cropped_bytes.getvalue())
     foreground = Image.open(BytesIO(fg_bytes)).convert("RGBA")
     bbox = foreground.getbbox()
     if bbox:
