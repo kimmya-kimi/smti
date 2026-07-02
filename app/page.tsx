@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { HomeScreen } from "@/components/HomeScreen";
+import { PaymentSheet } from "@/components/PaymentSheet";
 import { QuizScreen } from "@/components/QuizScreen";
 import { ResultScreen } from "@/components/ResultScreen";
 import { questions } from "@/data/questions";
@@ -9,11 +10,23 @@ import { calculateResult } from "@/utils/calculateResult";
 import { AnswerRecord, QuestionOption } from "@/types/smti";
 
 type Stage = "home" | "quiz" | "result";
+const PAID_STORAGE_KEY = "smti_paid_unlock";
+
+interface PaymentOrder {
+  orderId: string;
+  amount: number;
+}
 
 export default function Page() {
   const [stage, setStage] = useState<Stage>("home");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<AnswerRecord[]>([]);
+  const [isPaid, setIsPaid] = useState(false);
+  const [isUnlocking, setIsUnlocking] = useState(false);
+  const [paymentOpen, setPaymentOpen] = useState(false);
+  const [paymentOrder, setPaymentOrder] = useState<PaymentOrder | null>(null);
+  const [paymentAttempts, setPaymentAttempts] = useState(0);
+  const [paymentError, setPaymentError] = useState("");
   const [pendingOptionKey, setPendingOptionKey] = useState<QuestionOption["key"] | null>(null);
   const autoAdvanceRef = useRef<number | null>(null);
 
@@ -34,13 +47,23 @@ export default function Page() {
   const currentQuestionId = questions[currentIndex].id;
   const selectedOptionKey = answers.find((item) => item.questionId === currentQuestionId)?.optionKey;
 
-  useEffect(() => () => clearAutoAdvance(), []);
+  useEffect(() => {
+    const paid = window.localStorage.getItem(PAID_STORAGE_KEY);
+    setIsPaid(paid === "1");
+    return () => clearAutoAdvance();
+  }, []);
 
   const handleStart = () => {
     clearAutoAdvance();
     setStage("quiz");
     setCurrentIndex(0);
     setAnswers([]);
+    setIsPaid(false);
+    window.localStorage.removeItem(PAID_STORAGE_KEY);
+    setPaymentOrder(null);
+    setPaymentAttempts(0);
+    setPaymentOpen(false);
+    setPaymentError("");
     setPendingOptionKey(null);
   };
 
@@ -105,6 +128,12 @@ export default function Page() {
     setStage("home");
     setCurrentIndex(0);
     setAnswers([]);
+    setIsPaid(false);
+    window.localStorage.removeItem(PAID_STORAGE_KEY);
+    setPaymentOrder(null);
+    setPaymentAttempts(0);
+    setPaymentOpen(false);
+    setPaymentError("");
     setPendingOptionKey(null);
   };
 
@@ -113,6 +142,78 @@ export default function Page() {
     setPendingOptionKey(null);
     setStage("quiz");
     setCurrentIndex(questions.length - 1);
+  };
+
+  const handleUnlock = async () => {
+    setIsUnlocking(true);
+    setPaymentError("");
+
+    try {
+      const response = await fetch("/api/payment/create", {
+        method: "POST",
+      });
+
+      if (!response.ok) {
+        throw new Error("create failed");
+      }
+
+      const data = (await response.json()) as PaymentOrder & { currency: string; productName: string; createdAt: string };
+      setPaymentOrder({ orderId: data.orderId, amount: data.amount });
+      setPaymentAttempts(0);
+      setPaymentOpen(true);
+    } catch {
+      setPaymentError("支付接口暂时没有拉起来，请稍后再试。");
+    } finally {
+      setIsUnlocking(false);
+    }
+  };
+
+  const handleClosePayment = () => {
+    setPaymentOpen(false);
+    setPaymentAttempts(0);
+    setPaymentError("");
+  };
+
+  const handleConfirmPayment = async () => {
+    if (!paymentOrder) {
+      return;
+    }
+
+    if (paymentAttempts === 0) {
+      setPaymentAttempts(1);
+      setPaymentError("系统核验超时，暂未确认到账。若你已经完成付款，请回到二维码页，再点一次确认支付。");
+      return;
+    }
+
+    setIsUnlocking(true);
+    setPaymentError("");
+
+    try {
+      const response = await fetch("/api/payment/confirm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ orderId: paymentOrder.orderId }),
+      });
+
+      if (!response.ok) {
+        throw new Error("confirm failed");
+      }
+
+      const data = (await response.json()) as { paid: boolean };
+
+      if (data.paid) {
+        setIsPaid(true);
+        window.localStorage.setItem(PAID_STORAGE_KEY, "1");
+        setPaymentAttempts(0);
+        setPaymentOpen(false);
+      }
+    } catch {
+      setPaymentError("支付确认失败，请再试一次。");
+    } finally {
+      setIsUnlocking(false);
+    }
   };
 
   return (
@@ -145,11 +246,24 @@ export default function Page() {
           {stage === "result" && result && (
             <ResultScreen
               result={result}
+              isPaid={isPaid}
+              isUnlocking={isUnlocking}
+              onUnlock={handleUnlock}
               onEditAnswers={handleEditAnswers}
               onReset={handleReset}
             />
           )}
         </div>
+
+        <PaymentSheet
+          open={paymentOpen}
+          amountText="¥19.98"
+          orderId={paymentOrder?.orderId ?? ""}
+          loading={isUnlocking}
+          error={paymentError}
+          onClose={handleClosePayment}
+          onConfirm={handleConfirmPayment}
+        />
 
         <footer className="pb-2 pt-6 text-center text-[11px] tracking-[0.18em] text-white/28">
           © 2026 小天鹅 · SMTI
