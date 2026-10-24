@@ -72,7 +72,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
 
           <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-[28px] border border-white/10 bg-black/20 p-5 text-[13px] leading-6 text-white/78 backdrop-blur sm:text-sm md:text-[15px]">
-              20道情景题，测出你的 SMTI 人格代码。
+              30道情景题，测出你的 SMTI 人格代码。
               <br />
               有的人像秦始皇，控场控到文件名都想统一。
               <br />
